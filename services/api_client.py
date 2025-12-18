@@ -8,7 +8,7 @@ from typing import Any
 class TeacherFetcher:
     def __init__(self, school_number: int, school_district: District) -> None:
         self.school_number = school_number
-        self.school_district = school_district.value
+        self.school_district = school_district.short_name
         self.url = f'https://sch{self.school_number}{self.school_district}.mskobr.ru/v1/api/staff/groups'
         self.params = {'code_role': 'teacher'}
 

@@ -5,15 +5,23 @@ from typing import Optional
 
 
 class District(Enum):
-    CENTRAL = 'c'
-    NORTH = 's'
-    NORTH_EAST = 'sw'
-    EAST = 'w'
-    SOUTH_EAST = 'yw'
-    SOUTH = 'u'
-    SOUTH_WEST = 'uz'
-    WEST = 'z'
-    NORTH_WEST = 'sz'
+    CENTRAL = ('c', 'Центральный')
+    NORTH = ('s', 'Северный')
+    NORTH_EAST = ('sv', 'Северо-Восточный')
+    EAST = ('v', 'Восточный')
+    SOUTH_EAST = ('uv', 'Юго-Восточный')
+    SOUTH = ('u', 'Южный')
+    SOUTH_WEST = ('uz', 'Юго-Западный')
+    WEST = ('z', 'Западный')
+    NORTH_WEST = ('sz', 'Северо-Западный')
+    
+    @property
+    def short_name(self) -> str:
+        return self.value[0]
+    
+    @property
+    def full_name(self) -> str:
+        return self.value[1]
 
 
 @dataclass

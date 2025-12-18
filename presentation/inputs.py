@@ -13,20 +13,9 @@ class SchoolInput:
         print('ВЫБЕРИТЕ ОКРУГ ШКОЛЫ')
         print('=' * 40)
         
-        russian_names = {
-            'c': 'Центральный',
-            's': 'Северный', 
-            'sw': 'Северо-Восточный',
-            'w': 'Восточный',
-            'yw': 'Юго-Восточный',
-            'u': 'Южный',
-            'uz': 'Юго-Западный',
-            'z': 'Западный',
-            'sz': 'Северо-Западный'
-        }
-        
-        for key, name in russian_names.items():
-            print(f'{key} - {name}')
+        for district in District:
+            print(f'{district.short_name} - {district.full_name}')
+
         print('=' * 40)
     
     def get_school_number(self) -> int:
@@ -41,17 +30,7 @@ class SchoolInput:
                 print('Пожалуйста, введите корректный номер!')
     
     def get_district(self) -> District:
-        districts = {
-            'c': District.CENTRAL,
-            's': District.NORTH,
-            'sw': District.NORTH_EAST,
-            'w': District.EAST,
-            'yw': District.SOUTH_EAST,
-            'u': District.SOUTH,
-            'uz': District.SOUTH_WEST,
-            'z': District.WEST,
-            'sz': District.NORTH_WEST
-        }
+        districts = {district.short_name: district for district in District}
         
         while True:
             choice = input('Выберите округ (введите букву): ').lower().strip()
