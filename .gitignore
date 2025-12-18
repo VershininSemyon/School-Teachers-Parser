@@ -26,3 +26,6 @@ __pycache__
 *.jpg
 *.jpeg
 *.bmp
+
+# Текст
+*.txt

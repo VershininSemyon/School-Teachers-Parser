@@ -14,6 +14,7 @@ class District(Enum):
     SOUTH_WEST = ('uz', 'Юго-Западный')
     WEST = ('z', 'Западный')
     NORTH_WEST = ('sz', 'Северо-Западный')
+    NO_REGION = ('', 'Без региона (пустая строка)')
     
     @property
     def short_name(self) -> str:

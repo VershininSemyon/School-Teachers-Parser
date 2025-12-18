@@ -1,4 +1,6 @@
 
+import aiofiles
+
 from domain.structures import Department, StaffMember
 
 
@@ -34,6 +36,11 @@ class ReportGenerator:
                 report.append(f'  - {member.full_name}: {positions}')
         
         return '\n'.join(report)
+    
+    @staticmethod
+    async def write_summary_into_file(file_path: str, summary: str) -> None:
+        async with aiofiles.open(file_path, mode='w', encoding='utf-8') as file:
+            await file.write(summary)
     
     @staticmethod
     def find_by_position(departments: list[Department], position_name: str) -> list[StaffMember]:
